@@ -1,3 +1,7 @@
-/certs/
+/certs/*
 /.venv/
-config.yaml
+/logs/*
+config.ini
+/.git/
+/kubernetes/
+/dumps/*.db

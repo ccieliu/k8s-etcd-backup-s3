@@ -1,0 +1,6 @@
+/certs/*
+/.venv/
+/logs/*
+config.ini
+/.git/
+/kubernetes/
