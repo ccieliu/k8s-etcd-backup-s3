@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etcd-backuper-config
+data:
+  config.ini: |
+    [cluster]
+    name: private-cluster
+    feishuAppId: cli_xxxxxxxxxxxxxxxx
+    feishuAppSecret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    groupsName: 云脑运维Bot 测试群
+    [s3]
+    S3_BUCKET = k8s-etcd-backup
+    S3_ENDPOINT: s3-cn-sh2.ufileos.com
+    S3_ACCESSKEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    S3_SECRETKEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    [etcd]
+    Master1: https://10.9.171.53:2379
+    Master2: https://10.9.171.215:2379
+    Master3: https://10.9.171.134:2379
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etcd-backuper-certs
+data:
+  ca.pem: |
+    -----BEGIN CERTIFICATE-----
+
+    -----END CERTIFICATE-----
+  cert.pem: |
+    -----BEGIN CERTIFICATE-----
+
+    -----END CERTIFICATE-----
+  cert.key: |
+    -----BEGIN RSA PRIVATE KEY-----
+
+    -----END RSA PRIVATE KEY-----
+
+

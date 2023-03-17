@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: etcd-backuper
+spec:
+  schedule: "30 0,18 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: etcd-backuper
+            image: ccieliu/etcd-backuper:v1.0.2
+            imagePullPolicy: IfNotPresent
+            volumeMounts:
+            - name: configmap
+              mountPath: /data/config.ini
+              subPath: "config.ini"
+            - name: certs
+              mountPath: /data/certs/
+          volumes:
+            - name: configmap
+              configMap:
+                name: etcd-backuper-config
+                items:
+                - key: config.ini
+                  path: config.ini
+            - name: certs
+              configMap:
+                name: etcd-backuper-certs
+                items:
+                - key: ca.pem
+                  path: ca.pem
+                - key: cert.pem
+                  path: cert.pem
+                - key: cert.key
+                  path: cert.key
+          restartPolicy: OnFailure

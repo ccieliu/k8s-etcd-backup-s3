@@ -3,5 +3,5 @@
 /logs/*
 config.ini
 /.git/
-/kubernetes/
+/kubernetes/*.yaml
 /dumps/*.db
