@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: etcd-backuper
-            image: ccieliu/etcd-backuper:v1.0.2
+            image: ccieliu/etcd-backuper:v1.0.4
             imagePullPolicy: IfNotPresent
             volumeMounts:
             - name: configmap

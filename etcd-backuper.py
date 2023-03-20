@@ -213,7 +213,7 @@ class EtcdBackuper:
             endpointAddr = result[1]
             key = result[2]
             successStr = successStr + \
-                "**%s**: %s: %s\n" % (endpointName, endpointAddr, key)
+                "**%s**: %s > %s\n" % (endpointName, endpointAddr, key)
 
         failureStr = ""
         for result in resultDic['failure']:
@@ -221,7 +221,7 @@ class EtcdBackuper:
             endpointAddr = result[1]
             key = result[2]
             failureStr = failureStr + \
-                "**%s**: %s: %s\n" % (endpointName, endpointAddr, key)
+                "**%s**: %s > %s\n" % (endpointName, endpointAddr, key)
 
         devmsgContent = {
             "config": {
